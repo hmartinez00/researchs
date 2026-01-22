@@ -128,11 +128,58 @@ Email: hmartinez@abae.gob.ve}}
             f.write(f"INSUMOS: {', '.join(sec.get('insumos', []))}\n")
             f.write(f"CITAS OBLIGATORIAS: {', '.join(sec.get('llaves_bibtex', []))}\n")
             f.write("-" * 50 + "\n")
-            f.write("INSTRUCCIONES: Redacta 600 palabras en formato LaTeX de IEEE.\n")
+            # f.write("INSTRUCCIONES: Redacta 600 palabras en formato LaTeX de IEEE.\n")
+            # f.write("\n--- TAREA ADICIONAL: PROMPTS DE FIGURAS ---\n")
+            # f.write("Al final de tu respuesta, para cada figura generada, proporciona un prompt descriptivo para DALL-E 3.\n")
+            # f.write("REGLA DE ORO: Cada prompt debe pedir un '2D technical schematic' sobre fondo blanco, SIN REPETIR EL TITULO DE LA IMAGEN, enfocado en el flujo de datos descrito en tus párrafos.\n")
+
+            f.write("INSTRUCCIONES DE SALIDA:\n")
+            f.write("1. Redacta 600 palabras en formato LaTeX de IEEE.\n")
+            f.write("2. Por cada figura que decidas incluir (mínimo las mencionadas en INSUMOS), usa: \\includegraphics[width=\\linewidth]{nombre_archivo.png}\n")
+            f.write("\n3. AL FINAL DE TU RESPUESTA, entrega un bloque de código ```json con este formato:\n")
+            f.write("{\n")
+            f.write('  "nombre_archivo.png": "Prompt descriptivo para IA generadora de imagen",\n')
+            f.write('  "nombre_archivo_2.png": "..." \n')
+            f.write("}\n")
+            f.write("\nREGLAS PARA LOS PROMPTS DE IMAGEN:\n")
+            f.write("- Estilo: '2D technical vector diagram, engineering schematic, flat design'.\n")
+            f.write("- Composición: Fondo blanco puro, sin perspectiva 3D, sin texto interno.\n")
+            f.write("- Colores: Paleta técnica (Azul cobalto, Gris, Negro).\n")
 
     main_tex += "\n% --- BIBLIOGRAFÍA ---\n%\\nocite{*}\n" + r"\printbibliography" + "\n\\end{document}"
     with open(path('main.tex'), 'w', encoding='utf-8') as f:
         f.write(main_tex)
+
+
+    # --- BLOQUE DE MANIFIESTO DE IMÁGENES ---
+    # Definimos el nombre del archivo de control
+    manifest_path = path('image_manifest.json')
+    
+    # Inicializamos o cargamos el manifiesto existente
+    manifest_data = {}
+    if os.path.exists(manifest_path):
+        with open(manifest_path, 'r', encoding='utf-8') as mf:
+            try:
+                manifest_data = json.load(mf)
+            except json.JSONDecodeError:
+                manifest_data = {}
+
+    # Agregamos los placeholders detectados en los insumos a la base de datos
+    for insumo in sec.get('insumos', []):
+        if "Fig" in insumo or "Imagen" in insumo:
+            # El nombre del archivo se limpia para ser usado como llave
+            img_key = slugify(insumo) + ".png"
+            if img_key not in manifest_data:
+                manifest_data[img_key] = {
+                    "seccion": n,
+                    "descripcion_original": insumo,
+                    "prompt_ia": "Pendiente de generación por el Sprint de Escritura"
+                }
+
+    # Guardamos el manifiesto actualizado
+    with open(manifest_path, 'w', encoding='utf-8') as mf:
+        json.dump(manifest_data, mf, indent=4, ensure_ascii=False)
+    # ---------------------------------------
 
     print(f"Éxito. Archivos generados en el subdirectorio: {folder_name}")
 

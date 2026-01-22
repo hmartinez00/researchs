@@ -76,3 +76,27 @@ Necesito ingresar en el sistema encargado de gestionar la documentacion de la Ag
 
 Dame los valores de los campos en español.
 ```
+
+### Generar imagenes
+**PROMPT**
+```md
+> "Actúa como un **Diseñador de Infografías Técnicas para el Sector Aeroespacial**.
+> **CONTEXTO:**
+> Estoy escribiendo un paper titulado: **[Insertar Título del Documento]**.
+> Necesito generar una imagen profesional para el siguiente bloque de código LaTeX:
+> ```tex
+> [Insertar bloque \begin{figure} ... \end{figure}]
+> 
+> ```
+> 
+> 
+> **TAREA:**
+> Genera un **Prompt Detallado** para un motor de IA generadora de imágenes (como DALL-E 3 o Midjourney) que describa esta figura.
+> **REQUISITOS DEL PROMPT DE IMAGEN:**
+> 1. **Estilo:** Diagrama técnico 3D profesional, estilo 'Digital Twin', limpio, fondo blanco o azul oscuro tecnológico, estética de ingeniería de vanguardia.
+> 2. **Elementos:** Describe explícitamente qué objetos deben aparecer (ej. satélites en órbita LEO, estaciones terrestres, rayos de luz representando la conexión D2D).
+> 3. **Claridad:** Evita que se repita el titulo de la imagen (que ya esta en bloque .tex que la invoca), enfócate en la simbología y la interconexión.
+> 4. **Perspectiva:** Especifica si es una vista isométrica, orbital o un diagrama de flujo de datos."
+> 
+> 
+```
