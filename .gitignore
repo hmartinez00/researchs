@@ -1,3 +1,6 @@
 backup/
+backups/
 researchs/
-research_plan.md
+/research_plan.md
+/workflow/settings/api/settings.json
+/workflow/workflow/outputs/

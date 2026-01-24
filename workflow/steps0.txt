@@ -1,0 +1,2 @@
+py .\workflow\app.py --ask .\workflow\workflow\outputs\prompt_section_5.txt --reply .\workflow\workflow\section.md
+py .\workflow\injector.py "workflow/workflow/section.md" "workflow/workflow/outputs/section_5.tex" "workflow/workflow/outputs/image_manifest.json"

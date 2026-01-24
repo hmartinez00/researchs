@@ -1,0 +1,3 @@
+py .\workflow\actualizador.py -o .\workflow\templetes\seed.md -d .\workflow\workflow\meta_prompt.md -p .\workflow\templetes\templete_meta_prompt.md
+py .\workflow\app.py --ask .\workflow\workflow\meta_prompt.md --reply .\workflow\workflow\research_plan.md
+py .\workflow\sra_v5.py
