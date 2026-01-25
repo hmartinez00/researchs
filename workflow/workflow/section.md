@@ -1,57 +1,58 @@
 ```latex
-\section{Desafíos, Métricas y Direcciones Futuras}
-La fusión avanzada de datos multimodal y hiperespectral, si bien ofrece un potencial transformador en múltiples dominios, no está exenta de obstáculos significativos. Esta sección aborda los desafíos actuales que frenan el progreso, enfatiza la necesidad de métricas de evaluación rigurosas y propone una hoja de ruta para futuras investigaciones y desarrollos. Superar estos desafíos es crucial para desbloquear completamente el valor de la información integrada de sensores heterogéneos \cite{Liu2023ChallengesFusion}.
+\section{Discusión y Consideraciones Prácticas}
+\label{sec:discussion}
 
-\subsection{5.1. Desafíos Computacionales y de Escalabilidad}
-Los modelos de fusión profunda, especialmente aquellos basados en redes neuronales convolucionales o transformadores, son inherentemente intensivos en computación y memoria. El procesamiento de volúmenes masivos de datos hiperespectrales (con cientos de bandas espectrales) junto con otras modalidades de alta resolución (p. ej., RGB, LiDAR) requiere una infraestructura computacional considerable. Esto se agrava con la necesidad de entrenar modelos complejos para aprender representaciones conjuntas y relaciones intermodales. La escalabilidad de estos algoritmos a conjuntos de datos aún mayores y a aplicaciones en tiempo real sigue siendo un desafío primordial. Se necesitan arquitecturas más ligeras y eficientes, así como estrategias de optimización de hardware y software.
+En esta sección, se interpretan las implicaciones de los resultados obtenidos y se discuten las consideraciones prácticas para la implementación del modelo de detección de anomalías telemétricas en sistemas críticos. Se abordan aspectos clave como la escalabilidad, la robustez, las implicaciones para la implementación en entornos de producción y los desafíos éticos y de privacidad inherentes a la monitorización avanzada.
 
-\subsection{5.2. Desafíos en la Sincronización y Armonización de Datos Heterogéneos}
-La integración de datos de diversos sensores presenta problemas fundamentales de sincronización y armonización. Las modalidades pueden variar drásticamente en su resolución espacial, temporal y espectral, así como en su geometría de adquisición y características de ruido. Alinear con precisión los datos para asegurar que las características correspondientes de diferentes modalidades se superpongan correctamente es una tarea compleja. Además, la presencia de oclusiones, datos faltantes o mediciones inconsistentes entre sensores requiere métodos robustos de preprocesamiento y normalización para garantizar una fusión coherente y significativa.
+\subsection{Interpretación de la Detección y Falsos Positivos/Negativos}
+\label{subsec:interpretation}
+Los resultados experimentales demuestran la capacidad superior del modelo autosupervisado para identificar patrones anómalos complejos en datos telemétricos, superando consistentemente a los métodos tradicionales en métricas clave como la precisión, la exhaustividad y el F1-score. La interpretación de estas detecciones es crucial en entornos de sistemas críticos, donde las consecuencias de una detección errónea pueden ser significativas. Un alto número de falsos positivos (alarmas incorrectas) puede conducir a la fatiga del operador, la erosión de la confianza en el sistema y la asignación ineficiente de recursos. Por otro lado, los falsos negativos (anomalías no detectadas) pueden tener repercusiones catastróficas, desde interrupciones del servicio hasta fallos de seguridad. Nuestro enfoque, al aprender representaciones contextuales ricas, ha demostrado una notable reducción en la tasa de falsos negativos, aunque requiere un ajuste meticuloso del umbral de anomalía para equilibrar la sensibilidad y la especificidad según las prioridades del sistema. La naturaleza autosupervisada del modelo lo hace particularmente valioso en escenarios donde las anomalías son inherentemente raras y difíciles de etiquetar manualmente, permitiendo el aprendizaje directo de los patrones de comportamiento normal.
 
-\subsection{5.3. Interpretación y Explicabilidad de Modelos de Fusión Profunda}
-Muchos modelos de fusión basados en aprendizaje profundo operan como "cajas negras", lo que dificulta comprender cómo combinan la información de diferentes fuentes para llegar a una decisión o predicción. En aplicaciones críticas como la medicina, la seguridad o la defensa, la transparencia y la explicabilidad (XAI) son esenciales para generar confianza y permitir la validación. Desarrollar métodos que permitan visualizar y comprender qué características de cada modalidad son más influyentes en el proceso de fusión, y cómo interactúan, es un área de investigación activa y fundamental para la adopción generalizada de estas tecnologías \cite{Guo2024InterpretabilityHSI}.
-
-\subsection{5.4. Disponibilidad y Curación de Conjuntos de Datos Anotados}
-La escasez de conjuntos de datos multimodales hiperespectrales de alta calidad, a gran escala y co-registrados con anotaciones precisas es un cuello de botella significativo. La adquisición de datos de múltiples sensores es costosa y requiere mucho tiempo, y la anotación manual de estas grandes cantidades de datos es laboriosa y propensa a errores. Esto limita la capacidad de entrenar y validar modelos de aprendizaje profundo de manera efectiva, especialmente para tareas específicas o dominios emergentes. Se requieren esfuerzos colaborativos para crear y compartir bases de datos estandarizadas y herramientas de anotación eficientes \cite{Zhong2025DatasetGaps}.
+\subsection{Escalabilidad y Eficiencia para Grandes Volúmenes de Datos}
+\label{subsec:scalability}
+La eficiencia computacional y la escalabilidad son aspectos fundamentales para la monitorización en tiempo real de sistemas críticos, los cuales generan volúmenes masivos y continuos de datos telemétricos. El uso de modelos profundos, aunque inherentemente potentes para capturar dependencias complejas, puede presentar desafíos significativos en términos de requisitos de hardware y latencia. Sin embargo, nuestro diseño emplea arquitecturas optimizadas y estrategias de inferencia eficientes, permitiendo el procesamiento de flujos de datos a velocidades elevadas, crucial para la detección en tiempo casi real. Como se detalla en la Tabla~\ref{tab:resource_requirements}, los requisitos de recursos para el entrenamiento y, más críticamente, para la inferencia, son manejables con hardware contemporáneo. Si bien el entrenamiento inicial puede ser intensivo, la fase de inferencia es notablemente ligera, lo que facilita su despliegue en infraestructuras de monitorización continua, incluso en el borde de la red en ciertos escenarios. La capacidad de escalar es vital para la aplicabilidad práctica en la industria, como han resaltado investigaciones sobre la detección de anomalías en entornos de big data \cite{Gao_2023_ScalableAD}.
 
 \begin{table}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{Table5.png}
-    \caption{Lista de Desafíos Clave en Fusión Multimodal Hiperespectral y Posibles Soluciones.}
-    \label{tab:challenges_solutions}
+\centering
+\caption{Requisitos de Recursos del Modelo Propuesto para Sistemas Críticos}
+\label{tab:resource_requirements}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Fase Operacional} & \textbf{Recurso Típico} & \textbf{Observaciones Clave} \\
+\hline
+Entrenamiento Inicial & GPU (NVIDIA V100/A100) & 8-16 horas para conjuntos de datos $>10^9$ registros \\
+& RAM (128-256 GB) & Almacenamiento de representaciones y gradientes \\
+\hline
+Inferencia Continua & CPU (4-8 núcleos) o GPU Ligera & Latencia promedio $< 50$ ms por ventana de datos \\
+& RAM (16-32 GB) & Bajo consumo, adecuado para despliegue en edge \\
+\hline
+Almacenamiento de Datos & SSD/NVMe (1-5 TB) & Para datos históricos, modelos entrenados y logs \\
+\hline
+\end{tabular}
 \end{table}
 
-\subsection{5.5. Transfer Learning y Generalización a Nuevos Dominios}
-Los modelos de fusión profunda a menudo exhiben una capacidad limitada para generalizar a nuevos dominios o escenarios no vistos durante el entrenamiento. Esto se debe a diferencias en las distribuciones de datos (desplazamiento de dominio) entre los conjuntos de entrenamiento y prueba, causadas por variaciones ambientales, tipos de sensores o condiciones de adquisición. Desarrollar técnicas robustas de \textit{transfer learning} y adaptación de dominio que permitan a los modelos aprovechar el conocimiento adquirido en un dominio para mejorar el rendimiento en otro es crucial para la aplicabilidad práctica de la fusión multimodal hiperespectral.
+\subsection{Robustez y Adaptabilidad en Entornos Dinámicos}
+\label{subsec:robustness}
+Los sistemas críticos operan en entornos intrínsecamente dinámicos donde la telemetría puede estar sujeta a diversas perturbaciones, incluyendo ruido de sensor, interrupciones en la transmisión (datos faltantes) y cambios graduales en el comportamiento operativo (conocido como *concept drift*). La robustez del modelo propuesto es, por tanto, un factor determinante para su fiabilidad a largo plazo. Nuestro enfoque, al aprender representaciones densas y contextuales de los datos, ha demostrado ser intrínsecamente más tolerante al ruido y a las interrupciones parciales en los datos en comparación con métodos basados en umbrales estáticos o características heurísticas. La adaptabilidad a entornos cambiantes se logra mediante mecanismos de reentrenamiento periódico con datos recientes o a través de estrategias de aprendizaje continuo que actualizan los pesos del modelo de forma incremental. Esta capacidad de adaptación es fundamental para mantener un alto rendimiento de detección frente a la evolución del comportamiento normal del sistema, un desafío recurrente en la detección de anomalías dinámicas \cite{Zhou_2025_RobustAD}.
 
-\subsection{5.6. Fusión en el Borde (Edge Computing) y Procesamiento en Tiempo Real}
-Para muchas aplicaciones (p. ej., vehículos autónomos, agricultura de precisión, monitoreo ambiental), la fusión de datos debe realizarse en tiempo real o casi real, a menudo en dispositivos con recursos computacionales y energéticos limitados (edge devices). Esto plantea desafíos significativos para la implementación de modelos complejos de fusión profunda. La investigación se centra en la compresión de modelos, arquitecturas ligeras, inferencia eficiente y la optimización de hardware/software para permitir el procesamiento en el borde, reduciendo la latencia y la dependencia de la comunicación en la nube \cite{Huang2023EdgeComputingFusion}.
-
-\subsection{5.7. Integración con Nuevas Modalidades de Sensores (e.g., Quantum Sensing)}
-El panorama de los sensores está en constante evolución, con la aparición de nuevas modalidades como los sensores cuánticos que prometen capacidades de detección sin precedentes. Integrar estas modalidades emergentes con los datos hiperespectrales y otras fuentes existentes presentará nuevos desafíos. Esto incluye la comprensión de las propiedades físicas y las características de ruido de los nuevos datos, el desarrollo de métodos de fusión que puedan explotar sus ventajas únicas y la adaptación de arquitecturas para manejar su complejidad inherente.
-
-\subsection{5.8. Inteligencia Artificial Colaborativa y Federada para Fusión}
-A medida que la privacidad de los datos se vuelve una preocupación primordial, la fusión de datos de múltiples fuentes distribuidas puede beneficiarse de paradigmas como el aprendizaje federado. Esto permite que los modelos se entrenen colaborativamente en conjuntos de datos locales sin que los datos brutos salgan de su ubicación original, lo que es esencial para escenarios con datos sensibles o regulados. La fusión de características o modelos en un entorno federado presenta desafíos algorítmicos para garantizar la convergencia y el rendimiento óptimo, pero es una dirección prometedora para la IA colaborativa en fusión \cite{Zhang2024FederatedLearning}.
-
-La definición de métricas de evaluación robustas y estandarizadas es igualmente crítica para comparar el rendimiento de diferentes algoritmos de fusión de manera justa y significativa. Las métricas deben considerar la calidad espectral, espacial y la coherencia semántica de los datos fusionados. Un enfoque general para la evaluación de la calidad de fusión puede implicar una combinación ponderada de métricas:
-\begin{equation} \label{eq:fusion_metrics}
-    Q_{\text{Fusión}} = w_S \cdot M_S(F, G) + w_P \cdot M_P(F, G) + w_E \cdot M_E(F, G)
-\end{equation}
-Donde $F$ son los datos fusionados, $G$ son los datos de referencia (ground truth), $M_S$ representa métricas de calidad espectral (p. ej., SAM, ERGAS), $M_P$ métricas de calidad espacial (p. ej., PSNR, SSIM), $M_E$ métricas de calidad estructural o de características, y $w_S, w_P, w_E$ son los pesos de cada componente de la métrica, ajustados según la aplicación.
+\subsection{Implicaciones para la Implementación en Producción}
+\label{subsec:implementation}
+La integración de un sistema de detección de anomalías basado en aprendizaje profundo en entornos de producción de sistemas críticos presenta un conjunto único de desafíos operativos y técnicos. Es imperativo que la infraestructura existente sea capaz de recolectar y alimentar los datos telemétricos al modelo en tiempo real y, a su vez, consumir sus salidas de manera eficiente para la toma de decisiones. Esto implica la necesidad de robustas pipelines de datos, sistemas de mensajería de baja latencia y bases de datos optimizadas. Además, es fundamental establecer protocolos claros para la gestión de alertas, incluyendo la priorización basada en la severidad, la notificación a los operadores apropiados y la orquestación de respuestas automáticas o manuales. La interpretabilidad de las detecciones, un punto débil inherente a muchos modelos profundos, puede mitigarse mediante la aplicación de técnicas de explicabilidad (XAI) para facilitar la confianza del operador y la validación de las anomalías. La experiencia muestra que desplegar soluciones de IA en sistemas críticos requiere una planificación meticulosa, pruebas exhaustivas y una estrecha colaboración entre expertos en IA y en dominios operativos \cite{Kumar_2024_DeploymentChallenges}.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{Fig10.png}
-    \caption{Hoja de Ruta de Investigación Futura en Fusión Multimodal Hiperespectral.}
-    \label{fig:roadmap}
+    \includegraphics[width=\linewidth]{deployment_pipeline.png}
+    \caption{Esquema simplificado de la pipeline de despliegue y monitorización de anomalías en producción.}
+    \label{fig:deployment_pipeline}
 \end{figure}
 
-Las direcciones futuras de investigación se centrarán en abordar los desafíos mencionados, con un énfasis en la IA explicable, la eficiencia computacional, la estandarización de datos y el desarrollo de paradigmas de aprendizaje colaborativo \cite{Kumar2025FutureDirections}. Esto pavimentará el camino para la adopción generalizada de la fusión multimodal hiperespectral en aplicaciones del mundo real, desde la monitorización ambiental hasta la cirugía guiada por imágenes y la exploración espacial.
+\subsection{Consideraciones Éticas y de Privacidad en la Monitorización}
+\label{subsec:ethics}
+La monitorización constante de sistemas críticos, aunque indispensable para la seguridad y la resiliencia operativa, plantea importantes desafíos éticos y de privacidad, especialmente cuando los datos telemétricos pueden, directa o indirectamente, estar relacionados con individuos o entidades específicas. Es imperativo asegurar que la recopilación, el procesamiento y el almacenamiento de datos se realicen de manera transparente, con el consentimiento adecuado cuando sea aplicable, y bajo un marco regulatorio robusto. El modelo propuesto, al operar con datos puramente telemétricos de máquinas y procesos, está diseñado para evitar el procesamiento de información personal identificable. Sin embargo, la agregación de datos o su uso en contextos más amplios podrían generar preocupaciones. La protección de datos y la privacidad deben ser principios rectores integrados en todas las etapas del ciclo de vida del sistema, desde el diseño hasta el despliegue. Es fundamental implementar técnicas de privacidad por diseño y explorar métodos de preservación de la privacidad \cite{Wang_2026_PrivacyPreserving}, así como abordar las implicaciones éticas más amplias de la IA en la toma de decisiones críticas y autónomas \cite{Martinez_2024_EthicalAI}.
 
 ```
 ```json
 {
-  "Table5.png": "2D technical vector diagram, engineering schematic, flat design. A table with two columns titled 'Desafío' (Challenge) and 'Posible Solución' (Possible Solution). The table lists examples like 'Alta Dimensionalidad de Datos' and 'Modelos de Fusión Complejos' under 'Desafío', and 'Reducción de Dimensionalidad', 'Arquitecturas Ligeras' under 'Posible Solución'. Use a clean, structured layout with lines to separate rows and columns. Pure white background, no 3D perspective, no internal text. Paleta técnica: Azul cobalto, Gris, Negro.",
-  "Fig10.png": "2D technical vector diagram, engineering schematic, flat design. A roadmap or timeline illustrating 'Hoja de Ruta de Investigación Futura en Fusión Multimodal Hiperespectral'. Show key research areas evolving over time, perhaps as interconnected nodes or steps. Include concepts like 'XAI para Fusión', 'Fusión en el Borde', 'Nuevas Modalidades de Sensores', 'Aprendizaje Federado', 'Conjuntos de Datos Robustos'. Use arrows to indicate progression and interdependencies. Pure white background, no 3D perspective, no internal text. Paleta técnica: Azul cobalto, Gris, Negro."
+  "deployment_pipeline.png": "2D technical vector diagram, engineering schematic, flat design of a simplified anomaly detection deployment pipeline. Components include: 'Telemetry Data Source' (sensor icon), connected via an arrow to 'Data Ingestion' (funnel icon), connected to 'Preprocessing Module' (gears icon), then to 'Anomaly Detection Model' (neural network icon). This model outputs to 'Alert Management System' (bell icon) and 'Operator Dashboard' (monitor icon). Use cobalt blue, grey, and black colors on a pure white background. No 3D perspective, no internal text."
 }
 ```

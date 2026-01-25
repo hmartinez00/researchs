@@ -1,4 +1,4 @@
-Actúa como Editor Jefe de IEEE. Para el tema de investigación **Fusión de Datos Multimodal y Sensores Hiperespectrales**, genera un **Desglose Temático Detallado** siguiendo estrictamente este esquema de dos partes:
+Actúa como Editor Jefe de IEEE. Para el tema de investigación **Detección Automática de Anomalías Telemétricas mediante Aprendizaje Autosupervisado**, genera un **Desglose Temático Detallado** siguiendo estrictamente este esquema de dos partes:
 
 **PARTE 1: ESTRUCTURA JSON**
 Entrega un bloque de código JSON con la siguiente estructura:

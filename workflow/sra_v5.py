@@ -35,7 +35,6 @@ def generate_research_files(input_file, project_name=None):
 
     # 2. Gestión de Directorio del Proyecto
     # Si no se pasa nombre por parámetro, usa el título del JSON
-# 2. Gestión de Directorio del Proyecto
     if not project_name:
         project_name = data.get("titulo", "investigacion_nueva")
     
@@ -186,6 +185,21 @@ Email: hmartinez@abae.gob.ve}}
     # Guardamos el manifiesto actualizado
     with open(manifest_path, 'w', encoding='utf-8') as mf:
         json.dump(manifest_data, mf, indent=4, ensure_ascii=False)
+    # ---------------------------------------
+
+    # --- BLOQUE REGISTER PROMPT ---
+    with open(path('prompt_register.txt'), 'w', encoding='utf-8') as f:
+        f.write(f'Necesito ingresar en el sistema encargado de gestionar la documentacion de la Agencia para la que trabajo relacionada con el sector espacial, los datos de la siguiente investigación de carácter académico/técnico bajo el nombre **{data.get("titulo", project_name)}**. Para eso, requiero llenar un formulario con los siguientes campos:\n\n')
+        f.write('* Description')
+        f.write('* General Objective')
+        f.write('* Specific Objectives')
+        f.write('* Justification')
+        f.write('* Methodology')
+        f.write('* Scope (este campo debe ser resuelto con maximo 200 caracteres)')
+        f.write('* Activities (las previstas a efectuar para ejecutar la investigacion)')
+        f.write('* Resources (Los recursos previstos que se necesitaran para llevarla a cabo)')
+        f.write('* Limitations\n\n')
+        f.write('Dame los valores de los campos en español.')
     # ---------------------------------------
 
     print(f"Éxito. Archivos generados en el subdirectorio: {folder_name}")

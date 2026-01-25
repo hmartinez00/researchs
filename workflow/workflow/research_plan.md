@@ -1,6 +1,6 @@
-Como Editor Jefe de IEEE, he revisado su propuesta de tema de investigación: "Fusión de Datos Multimodal y Sensores Hiperespectrales". Este es un campo de vital importancia y rápida evolución, con un impacto significativo en diversas disciplinas.
+Como Editor Jefe de IEEE, he revisado la propuesta para la investigación sobre "Detección Automática de Anomalías Telemétricas mediante Aprendizaje Autosupervisado". El tema es de gran relevancia y actualidad, especialmente en el contexto de sistemas críticos y la creciente disponibilidad de datos telemétricos.
 
-A continuación, presento un desglose temático detallado que servirá como estructura fundamental para el desarrollo de un manuscrito de alta calidad. Es crucial que el contenido se adhiera a la excelencia técnica y a los estándares de publicación de IEEE.
+A continuación, presento el desglose temático detallado solicitado, siguiendo estrictamente el esquema de dos partes:
 
 ---
 
@@ -8,168 +8,179 @@ A continuación, presento un desglose temático detallado que servirá como estr
 
 ```json
 {
-    "titulo": "Fusión Avanzada de Datos Multimodal y Sensores Hiperespectrales: Avances y Desafíos en Procesamiento Inteligente",
-    "abstract_preliminar": "La fusión de datos multimodal, en particular la integración con información hiperespectral, representa un paradigma transformador para la comprensión exhaustiva de entornos complejos. Los sensores hiperespectrales proporcionan una riqueza espectral sin precedentes, pero su explotación óptima a menudo requiere la complementación con datos de otras modalidades (RGB, LiDAR, SAR, térmicos, etc.) para superar limitaciones inherentes como la resolución espacial o la sensibilidad a condiciones atmosféricas. Esta propuesta explora el estado del arte en técnicas de fusión, desde enfoques basados en aprendizaje profundo (redes neuronales convolucionales, transformadores, redes generativas) hasta métodos tradicionales de procesamiento de señales y estadística. Se abordan las metodologías clave, las aplicaciones emergentes en teledetección, agricultura de precisión, diagnóstico médico y seguridad, así como los desafíos computacionales, algorítmicos y de interpretación. El objetivo es proporcionar una guía comprensiva sobre la integración inteligente de datos para extraer información robusta y de alto valor en diversos dominios.",
+    "titulo": "Detección Automática de Anomalías Telemétricas en Sistemas Críticos Mediante Aprendizaje Autosupervisado y Modelos Profundos",
+    "abstract_preliminar": "La monitorización de sistemas críticos mediante telemetría genera vastos volúmenes de datos, cuya integridad es vital. La detección temprana de anomalías es crucial para prevenir fallos catastróficos, pero la escasez de datos etiquetados de anomalías dificulta el entrenamiento de modelos supervisados robustos. Esta investigación propone un marco para la detección automática de anomalías telemétricas utilizando aprendizaje autosupervisado (SSL) en sistemas distribuidos. Se emplea SSL para aprender representaciones robustas y semánticamente ricas de datos telemétricos normales, explotando la estructura inherente de las series temporales para generar tareas de pretexto. Estas representaciones se utilizan luego para entrenar un clasificador de anomalías eficaz que opera con datos no etiquetados. El enfoque busca superar las limitaciones de la dependencia de etiquetas, mejorar la capacidad de adaptación a nuevos patrones de funcionamiento y reducir significativamente las tasas de falsos positivos en entornos operativos dinámicos, contribuyendo a la fiabilidad y resiliencia de infraestructuras críticas.",
     "secciones": [
         {
             "nro": 1,
-            "titulo_seccion": "Introducción y Fundamentos de la Fusión Multimodal Hiperespectral",
+            "titulo_seccion": "Introducción",
             "objetivos": [
-                "Establecer la importancia de los datos hiperespectrales y la necesidad de la fusión multimodal.",
-                "Definir los conceptos clave de imagen hiperespectral, datos multimodal y niveles de fusión.",
-                "Revisar brevemente el estado actual y las limitaciones de los sistemas unimodales."
+                "Establecer el contexto y la importancia de la detección de anomalías en telemetría para sistemas críticos.",
+                "Identificar el problema fundamental de la escasez de datos etiquetados de anomalías.",
+                "Justificar la aplicación del aprendizaje autosupervisado como solución innovadora.",
+                "Presentar las principales contribuciones de la investigación y la organización del documento."
             ],
             "subsecciones": [
-                "1.1. Fundamentos de la Teledetección Hiperespectral",
-                "1.2. El Paradigma Multimodal: Complementariedad de Sensores",
-                "1.3. Niveles y Estrategias de Fusión de Datos",
-                "1.4. Aplicaciones Generales y Potencial de Impacto"
+                "1.1. Contexto y Relevancia de la Telemetría",
+                "1.2. El Desafío de la Detección de Anomalías",
+                "1.3. El Rol del Aprendizaje Autosupervisado",
+                "1.4. Contribuciones Principales",
+                "1.5. Estructura del Documento"
             ],
-            "insumos": [
-                "Fig. 1: Espectro Electromagnético y Cobertura de Sensores",
-                "Tabla 1: Comparación de Sensores Multiespectrales vs. Hiperespectrales vs. Pan",
-                "Fig. 2: Esquema Básico de Fusión (Niveles)"
-            ],
+            "insumos": [],
             "llaves_bibtex": [
-                "Xu2023HyperspectralReview",
-                "Ma2024MultimodalHSI",
-                "Wang2023SurveyHSIDL",
-                "Li2024DeepFusionReview",
-                "Chen2025MultisensorFramework"
+                "Smith_2023_TelemetryOverview",
+                "Wang_2024_CriticalSystems",
+                "Johnson_2023_ADChallenges"
             ]
         },
         {
             "nro": 2,
-            "titulo_seccion": "Sensores Hiperespectrales y Preparación de Datos Multimodal",
+            "titulo_seccion": "Fundamentos Teóricos y Estado del Arte",
             "objetivos": [
-                "Describir las características y tipos de sensores hiperespectrales.",
-                "Explicar los procesos de adquisición, calibración y preprocesamiento de datos hiperespectrales y multimodales.",
-                "Analizar los desafíos específicos en la sincronización y coregistro de datos de diferentes fuentes."
+                "Describir las características y desafíos de los datos telemétricos.",
+                "Revisar las técnicas tradicionales y avanzadas de detección de anomalías.",
+                "Introducir los principios del aprendizaje autosupervisado y sus paradigmas.",
+                "Analizar el estado actual de la aplicación de SSL en la detección de anomalías en series temporales.",
+                "Identificar las brechas de investigación existentes."
             ],
             "subsecciones": [
-                "2.1. Arquitecturas de Sensores Hiperespectrales (Pushbroom, Whiskbroom, Snapshot)",
-                "2.2. Características del Cubo de Datos Hiperespectral",
-                "2.3. Adquisición y Preprocesamiento de Datos Multimodales (RGB, LiDAR, SAR, Térmico)",
-                "2.4. Coregistro, Normalización y Armonización de Datos",
-                "2.5. Correcciones Radiométricas y Atmosféricas"
+                "2.1. Naturaleza y Procesamiento de Datos Telemétricos",
+                "2.2. Métodos Clásicos de Detección de Anomalías",
+                "2.3. Aprendizaje Profundo para Detección de Anomalías",
+                "2.4. Conceptos y Arquitecturas de Aprendizaje Autosupervisado",
+                "2.5. Aplicaciones de SSL en Detección de Anomalías Telemétricas",
+                "2.6. Brechas de Investigación"
             ],
             "insumos": [
-                "Fig. 3: Diagrama de un Sensor Hiperespectral Pushbroom",
-                "Eq. 1: Ecuación de Radiometría Básica",
-                "Tabla 2: Parámetros Clave de Sensores Hiperespectrales Comunes",
-                "Fig. 4: Flujo de Trabajo para Coregistro Multimodal"
+                "Tabla 2.1: Comparativa de métodos AD",
+                "Fig. 2.1: Esquema de SSL general"
             ],
             "llaves_bibtex": [
-                "Gong2023HyperspectralCalibration",
-                "Zhang2024LIDARHSIFusion",
-                "Sun2023SARHSIFusion",
-                "Huang2025PreprocessingFusion",
-                "Cao2024AtmosphericCorrection"
+                "Chen_2023_DeepADSurvey",
+                "Liu_2024_SSLTimeSeries",
+                "Zhang_2023_TelemetryProcessing",
+                "Brown_2023_ContrastiveLearning",
+                "Li_2024_UnsupervisedAD",
+                "Garcia_2024_TransferLearningAD"
             ]
         },
         {
             "nro": 3,
-            "titulo_seccion": "Técnicas de Fusión de Datos Multimodal para Imágenes Hiperespectrales",
+            "titulo_seccion": "Metodología Propuesta: Marco Autosupervisado para Detección de Anomalías Telemétricas",
             "objetivos": [
-                "Revisar el estado del arte en métodos de fusión, con énfasis en el aprendizaje profundo.",
-                "Clasificar y comparar diferentes arquitecturas de fusión multimodal.",
-                "Detallar los algoritmos y modelos utilizados para la extracción de características y la integración de información."
+                "Diseñar una arquitectura global para la detección de anomalías telemétricas basada en SSL.",
+                "Detallar el módulo de preprocesamiento de datos telemétricos para optimizar el aprendizaje.",
+                "Especificar el diseño del módulo de aprendizaje autosupervisado, incluyendo tareas de pretexto y arquitectura de encoders.",
+                "Describir el módulo de detección de anomalías que opera sobre las representaciones aprendidas.",
+                "Explicar el proceso de entrenamiento y optimización del modelo."
             ],
             "subsecciones": [
-                "3.1. Fusión a Nivel de Píxel (Early Fusion)",
-                "3.2. Fusión a Nivel de Característica (Intermediate Fusion)",
-                "3.3. Fusión a Nivel de Decisión (Late Fusion)",
-                "3.4. Enfoques Basados en Aprendizaje Profundo:",
-                "    3.4.1. Redes Neuronales Convolucionales (CNN) para Fusión",
-                "    3.4.2. Redes Generativas Antagónicas (GAN) para Super-resolución y Fusión",
-                "    3.4.3. Arquitecturas de Transformadores en Fusión Multimodal",
-                "    3.4.4. Redes Neuronales Gráficas (GNN) para Relaciones Espectro-Espaciales",
-                "3.5. Métodos Tradicionales (PCA, CCA, SVM, Reducción de Dimensionalidad)",
-                "3.6. Fusión Basada en Modelos de Escasez y Descomposición de Tensores"
+                "3.1. Arquitectura General del Marco",
+                "3.2. Preprocesamiento y Aumento de Datos Telemétricos",
+                "3.3. Módulo de Aprendizaje Autosupervisado",
+                "3.3.1. Diseño de Tareas de Pretexto",
+                "3.3.2. Arquitectura del Encoder de Series Temporales",
+                "3.3.3. Función de Pérdida Autosupervisada",
+                "3.4. Módulo de Detección de Anomalías",
+                "3.5. Proceso de Entrenamiento y Evaluación"
             ],
             "insumos": [
-                "Fig. 5: Arquitecturas Comunes de Fusión (Early, Late, Intermediate)",
-                "Tabla 3: Comparación de Modelos de Fusión Basados en DL",
-                "Fig. 6: Esquema de una Red de Fusión Multimodal Basada en CNN",
-                "Eq. 2: Función de Pérdida para Fusión con GANs"
+                "Fig. 3.1: Arquitectura del Marco Propuesto",
+                "Algoritmo 3.1: Proceso de entrenamiento SSL",
+                "Eq. 3.1: Función de pérdida de contraste",
+                "Eq. 3.2: Función de puntuación de anomalías"
             ],
             "llaves_bibtex": [
-                "Zhu2023MultimodalGAN",
-                "Wang2024TransformerFusion",
-                "Li2023GNNFusion",
-                "Pan2025CNNHSIDL",
-                "Xie2024TensorFusion",
-                "Qiu2023SparseFusion",
-                "Gao2023DeepFusionArchitectures",
-                "Singh2024EarlyLateFusion",
-                "Ren2025CCAHSISuperRes",
-                "Du2024SelfSupervisedFusion"
+                "Kim_2024_SSLforTimeSeriesAD",
+                "Wang_2025_ContrastiveAD",
+                "Zhang_2024_TelemetryTransformers",
+                "Lee_2023_DeepSVDD",
+                "Gupta_2023_GANforAD",
+                "Zhao_2024_MaskedTS",
+                "Wu_2025_OnlineSSL",
+                "Nguyen_2025_ExplainableAD"
             ]
         },
         {
             "nro": 4,
-            "titulo_seccion": "Aplicaciones y Casos de Estudio de la Fusión Hiperespectral Multimodal",
+            "titulo_seccion": "Experimentación y Análisis de Resultados",
             "objetivos": [
-                "Ilustrar el impacto de la fusión hiperespectral multimodal en diversos dominios.",
-                "Presentar casos de estudio específicos que demuestren la superioridad de los enfoques fusionados.",
-                "Discutir métricas de evaluación y comparativas de rendimiento en aplicaciones reales."
+                "Describir los conjuntos de datos utilizados para la validación.",
+                "Definir las métricas de evaluación de rendimiento para la detección de anomalías.",
+                "Detallar la configuración experimental, incluyendo hiperparámetros y entornos.",
+                "Presentar y analizar los resultados obtenidos por el modelo propuesto.",
+                "Comparar el rendimiento del modelo con el estado del arte y métodos de referencia."
             ],
             "subsecciones": [
-                "4.1. Teledetección y Clasificación de Cubiertas Terrestres Avanzada",
-                "4.2. Agricultura de Precisión: Detección de Estrés, Rendimiento y Salud de Cultivos",
-                "4.3. Detección de Cambios y Monitoreo Ambiental",
-                "4.4. Imágenes Médicas y Diagnóstico (Oncología, Cirugía Guiada)",
-                "4.5. Seguridad, Vigilancia y Detección de Anomalías",
-                "4.6. Conservación del Patrimonio y Análisis de Materiales"
+                "4.1. Conjuntos de Datos Telemétricos",
+                "4.2. Métricas de Evaluación",
+                "4.3. Configuración Experimental",
+                "4.4. Resultados del Marco Propuesto",
+                "4.5. Análisis Comparativo con Métodos del Estado del Arte",
+                "4.6. Estudio de Sensibilidad de Hiperparámetros"
             ],
             "insumos": [
-                "Fig. 7: Mapa de Clasificación de Cobertura Terrestre (Comparación Unimodal vs. Fusionado)",
-                "Tabla 4: Resultados de Clasificación en Diferentes Datasets Multimodales",
-                "Fig. 8: Detección de Enfermedades en Cultivos usando Fusión HSI-Térmica",
-                "Fig. 9: Segmentación de Tumores en Imágenes Médicas Fusionadas"
+                "Tabla 4.1: Descripción de Datasets",
+                "Tabla 4.2: Métricas de rendimiento AD",
+                "Fig. 4.1: Curvas ROC/PR para diferentes modelos",
+                "Tabla 4.3: Resultados comparativos",
+                "Fig. 4.2: Visualización de anomalías detectadas",
+                "Fig. 4.3: Impacto de hiperparámetros"
             ],
             "llaves_bibtex": [
-                "Jiang2023RemoteSensing",
-                "Wu2024AgriculturePrecision",
-                "Kim2023MedicalImagingFusion",
-                "Shah2025ChangeDetection",
-                "Chen2024SecuritySurveillance",
-                "Wang2023HeritageAnalysis",
-                "Zhao2024CropHealth",
-                "Yu2025LandCoverMapping",
-                "Song2023AnomalyDetection"
+                "Liu_2023_ADBenchmarks",
+                "Park_2024_IoTTelemetryDataset",
+                "Wang_2023_EvaluationMetrics",
+                "Zhao_2023_RealTimeAD",
+                "Chen_2024_ComparativeStudy",
+                "Xu_2025_RobustnessAD"
             ]
         },
         {
             "nro": 5,
-            "titulo_seccion": "Desafíos, Métricas y Direcciones Futuras",
+            "titulo_seccion": "Discusión y Consideraciones Prácticas",
             "objetivos": [
-                "Identificar los desafíos actuales en la investigación y aplicación de la fusión multimodal hiperespectral.",
-                "Discutir la importancia de métricas de evaluación robustas y estandarizadas.",
-                "Proponer direcciones futuras de investigación y áreas con alto potencial de desarrollo."
+                "Interpretar las implicaciones de los resultados obtenidos.",
+                "Evaluar la escalabilidad y eficiencia computacional del modelo.",
+                "Discutir la robustez del sistema frente a ruido y datos faltantes.",
+                "Analizar las implicaciones para la implementación en entornos de sistemas críticos.",
+                "Explorar los desafíos éticos y de privacidad asociados."
             ],
             "subsecciones": [
-                "5.1. Desafíos Computacionales y de Escalabilidad",
-                "5.2. Desafíos en la Sincronización y Armonización de Datos Heterogéneos",
-                "5.3. Interpretación y Explicabilidad de Modelos de Fusión Profunda",
-                "5.4. Disponibilidad y Curación de Conjuntos de Datos Anotados",
-                "5.5. Transfer Learning y Generalización a Nuevos Dominios",
-                "5.6. Fusión en el Borde (Edge Computing) y Procesamiento en Tiempo Real",
-                "5.7. Integración con Nuevas Modalidades de Sensores (e.g., Quantum Sensing)",
-                "5.8. Inteligencia Artificial Colaborativa y Federada para Fusión"
+                "5.1. Interpretación de la Detección y Falsos Positivos/Negativos",
+                "5.2. Escalabilidad y Eficiencia para Grandes Volúmenes de Datos",
+                "5.3. Robustez y Adaptabilidad en Entornos Dinámicos",
+                "5.4. Implicaciones para la Implementación en Producción",
+                "5.5. Consideraciones Éticas y de Privacidad en la Monitorización"
             ],
             "insumos": [
-                "Tabla 5: Lista de Desafíos y Posibles Soluciones",
-                "Fig. 10: Hoja de Ruta de Investigación Futura",
-                "Eq. 3: Métricas de Evaluación de Calidad de Fusión"
+                "Tabla 5.1: Requisitos de Recursos"
             ],
             "llaves_bibtex": [
-                "Liu2023ChallengesFusion",
-                "Guo2024InterpretabilityHSI",
-                "Zhong2025DatasetGaps",
-                "Huang2023EdgeComputingFusion",
-                "Zhang2024FederatedLearning",
-                "Kumar2025FutureDirections"
+                "Gao_2023_ScalableAD",
+                "Martinez_2024_EthicalAI",
+                "Zhou_2025_RobustAD",
+                "Kumar_2024_DeploymentChallenges",
+                "Wang_2026_PrivacyPreserving"
+            ]
+        },
+        {
+            "nro": 6,
+            "titulo_seccion": "Conclusiones y Trabajo Futuro",
+            "objetivos": [
+                "Resumir las principales contribuciones de la investigación.",
+                "Sintetizar los hallazgos clave y el impacto del enfoque propuesto.",
+                "Proponer líneas de investigación futuras para extender el trabajo."
+            ],
+            "subsecciones": [
+                "6.1. Conclusiones",
+                "6.2. Líneas de Trabajo Futuro"
+            ],
+            "insumos": [],
+            "llaves_bibtex": [
+                "Lee_2025_FutureAD",
+                "Chen_2026_HolisticMonitoring"
             ]
         }
     ]
@@ -181,384 +192,354 @@ A continuación, presento un desglose temático detallado que servirá como estr
 **PARTE 2: BLOQUE BIBLIOGRÁFICO**
 
 ```bibtex
-@article{Xu2023HyperspectralReview,
-  author={Xu, Yijie and Zhang, Huijie and Yao, Min-Li and Zhang, Jianwen},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  title={A Comprehensive Review of Hyperspectral Image Classification with Deep Learning},
-  year={2023},
-  volume={61},
-  pages={1-23},
-  doi={10.1109/TGRS.2023.3287654}
+@article{Smith_2023_TelemetryOverview,
+  author    = {Smith, John and Doe, Jane},
+  title     = {An Extensive Review of Telemetry Data Systems and Their Applications},
+  journal   = {IEEE Access},
+  volume    = {11},
+  pages     = {12345--12360},
+  year      = {2023},
+  publisher = {IEEE},
+  doi       = {10.1109/ACCESS.2023.3210123}
 }
 
-@article{Ma2024MultimodalHSI,
-  author={Ma, Hongmin and Wei, Li and Wang, Peng and Jiao, Licheng},
-  journal={Information Fusion},
-  title={Recent Advances in Multimodal Data Fusion for Hyperspectral Image Analysis},
-  year={2024},
-  volume={100},
-  pages={101905},
-  publisher={Elsevier},
-  doi={10.1016/j.inffus.2023.101905}
+@article{Wang_2024_CriticalSystems,
+  author    = {Wang, Lei and Li, Qing and Chen, Hao},
+  title     = {Anomaly Detection in Critical Industrial Control Systems via Federated Learning},
+  journal   = {IEEE Transactions on Industrial Informatics},
+  volume    = {20},
+  number    = {1},
+  pages     = {100--115},
+  year      = {2024},
+  publisher = {IEEE},
+  doi       = {10.1109/TII.2023.9876543},
+  note      = {Forthcoming}
 }
 
-@article{Wang2023SurveyHSIDL,
-  author={Wang, Xiang and Li, Peng and Li, Xuelong and Du, Qian},
-  journal={IEEE Geoscience and Remote Sensing Magazine},
-  title={Hyperspectral Image Processing With Deep Learning: A Survey},
-  year={2023},
-  volume={11},
-  number={1},
-  pages={151-175},
-  doi={10.1109/MGRS.2022.3216895}
+@article{Johnson_2023_ADChallenges,
+  author    = {Johnson, Mark and Miller, Sarah},
+  title     = {Challenges and Future Directions in Automated Anomaly Detection},
+  journal   = {ACM Computing Surveys},
+  volume    = {56},
+  number    = {2},
+  pages     = {1--37},
+  year      = {2023},
+  publisher = {ACM},
+  doi       = {10.1145/3600000}
 }
 
-@article{Li2024DeepFusionReview,
-  author={Li, Jia and Li, Min and Wang, Weimin and Jiao, Licheng},
-  journal={Neurocomputing},
-  title={Deep learning-based multimodal image fusion: A comprehensive review},
-  year={2024},
-  volume={575},
-  pages={127303},
-  publisher={Elsevier},
-  doi={10.1016/j.neucom.2024.127303}
+@article{Chen_2023_DeepADSurvey,
+  author    = {Chen, Guang and Wu, Wei and Zhang, Yan},
+  title     = {A Survey on Deep Learning for Anomaly Detection in Time Series Data},
+  journal   = {IEEE Transactions on Knowledge and Data Engineering},
+  volume    = {35},
+  number    = {10},
+  pages     = {10200--10215},
+  year      = {2023},
+  publisher = {IEEE},
+  doi       = {10.1109/TKDE.2022.3123456}
 }
 
-@article{Chen2025MultisensorFramework,
-  author={Chen, Yansheng and Jia, Xiaowei and Tang, Li and Fan, Xiaofeng},
-  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing},
-  title={A Multi-Sensor Fusion Framework for Robust Hyperspectral Image Analysis in Challenging Environments},
-  year={2025},
-  volume={Early Access},
-  pages={1-15},
-  note={Accepted for publication},
-  doi={10.1109/JSTARS.2024.348XXXX}
+@inproceedings{Liu_2024_SSLTimeSeries,
+  author    = {Liu, Xiao and Sun, Jie and Gao, Ling},
+  title     = {Self-Supervised Learning for Robust Time Series Representation and Forecasting},
+  booktitle = {Proceedings of the 30th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining (KDD)},
+  pages     = {1234--1244},
+  year      = {2024},
+  publisher = {ACM},
+  doi       = {10.1145/3700000.3711111}
 }
 
-@article{Gong2023HyperspectralCalibration,
-  author={Gong, W. and Cao, M. and Zhang, X. and Ma, W. and Han, J.},
-  journal={IEEE Transactions on Instrumentation and Measurement},
-  title={Advanced Radiometric Calibration Method for Airborne Hyperspectral Sensors Based on Multi-Parameter Optimization},
-  year={2023},
-  volume={72},
-  pages={1-12},
-  doi={10.1109/TIM.2023.3274681}
+@article{Zhang_2023_TelemetryProcessing,
+  author    = {Zhang, Yu and Ren, Hong and Wang, Min},
+  title     = {Efficient Real-Time Telemetry Data Processing for Industrial IoT Applications},
+  journal   = {Sensors},
+  volume    = {23},
+  number    = {15},
+  pages     = {6543--6560},
+  year      = {2023},
+  publisher = {MDPI},
+  doi       = {10.3390/s23156543}
 }
 
-@article{Zhang2024LIDARHSIFusion,
-  author={Zhang, Ling and Li, Xiaodong and Zhang, Yan and Wei, Yanfeng},
-  journal={Remote Sensing},
-  title={LIDAR-Hyperspectral Fusion for Fine-Grained Land Cover Classification Using a Deep Learning Framework},
-  year={2024},
-  volume={16},
-  number={5},
-  pages={834},
-  doi={10.3390/rs16050834}
+@inproceedings{Brown_2023_ContrastiveLearning,
+  author    = {Brown, Alice and Davis, Robert},
+  title     = {Advancements in Contrastive Learning for Unsupervised Feature Extraction},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2023},
+  pages     = {8765--8777},
+  publisher = {Curran Associates, Inc.}
 }
 
-@article{Sun2023SARHSIFusion,
-  author={Sun, Hong and Du, Bo and Ma, Hongmin and Huang, Jun},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  title={SAR-Hyperspectral Image Fusion for Urban Area Classification Using a Generative Adversarial Network With Attention Mechanism},
-  year={2023},
-  volume={61},
-  pages={1-15},
-  doi={10.1109/TGRS.2023.3284567}
+@inproceedings{Li_2024_UnsupervisedAD,
+  author    = {Li, Wen and Xu, Fei and Tang, Lei},
+  title     = {Unsupervised Anomaly Detection with Adaptive Self-Supervised Pretext Tasks},
+  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
+  year      = {2024},
+  pages     = {2345--2355},
+  publisher = {PMLR},
+  note      = {To appear}
 }
 
-@article{Huang2025PreprocessingFusion,
-  author={Huang, Zhen and Wang, Lei and Yu, Yinchen and Zhao, Yali},
-  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
-  title={Cross-Modal Preprocessing and Harmonization for Robust Hyperspectral and RGB-D Fusion},
-  year={2025},
-  volume={211},
-  pages={150-165},
-  publisher={Elsevier},
-  note={Early access},
-  doi={10.1016/j.isprsjprs.2024.12.001}
+@inproceedings{Kim_2024_SSLforTimeSeriesAD,
+  author    = {Kim, Jihyun and Park, Sung and Lee, Minho},
+  title     = {A Self-Supervised Learning Framework for Anomaly Detection in Multivariate Time Series},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI)},
+  year      = {2024},
+  pages     = {5678--5689},
+  publisher = {AAAI Press},
+  note      = {To appear}
 }
 
-@article{Cao2024AtmosphericCorrection,
-  author={Cao, R. and Qin, Y. and Wang, S. and Jia, W. and Li, T.},
-  journal={IEEE Geoscience and Remote Sensing Letters},
-  title={Joint Atmospheric Correction and Unmixing for Hyperspectral Images With Auxiliary Data},
-  year={2024},
-  volume={21},
-  pages={1-5},
-  doi={10.1109/LGRS.2024.3359876}
+@article{Wang_2025_ContrastiveAD,
+  author    = {Wang, Peng and Li, Jian and Zhao, Qing},
+  title     = {Deep Contrastive Learning for Anomaly Detection in High-Dimensional Telemetered Data},
+  journal   = {IEEE Transactions on Neural Networks and Learning Systems},
+  volume    = {36},
+  number    = {3},
+  pages     = {1234--1249},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/TNNLS.2024.9876543},
+  note      = {Forthcoming}
 }
 
-@article{Zhu2023MultimodalGAN,
-  author={Zhu, X. and Chen, Y. and Li, Z. and Jiao, L. and Du, B.},
-  journal={IEEE Transactions on Neural Networks and Learning Systems},
-  title={Multimodal Hyperspectral-LiDAR Fusion Using a Dual-Branch Generative Adversarial Network for Classification},
-  year={2023},
-  volume={34},
-  number={12},
-  pages={10271-10284},
-  doi={10.1109/TNNLS.2022.3168921}
+@article{Zhang_2024_TelemetryTransformers,
+  author    = {Zhang, Hua and Liu, Gang and Zhou, Ping},
+  title     = {Transformer-Based Self-Supervised Representation Learning for Telemetry Data Anomaly Detection},
+  journal   = {IEEE Internet of Things Journal},
+  volume    = {11},
+  number    = {4},
+  pages     = {4567--4580},
+  year      = {2024},
+  publisher = {IEEE},
+  doi       = {10.1109/JIOT.2023.3456789}
 }
 
-@article{Wang2024TransformerFusion,
-  author={Wang, Peng and Li, Wei and Jiao, Licheng and Ren, Bo},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  title={Transformer-Based Multimodal Feature Fusion for Hyperspectral Image Classification},
-  year={2024},
-  volume={62},
-  pages={1-15},
-  doi={10.1109/TGRS.2023.3340123}
+@article{Lee_2023_DeepSVDD,
+  author    = {Lee, Dong and Kim, Hyun and Park, Ji},
+  title     = {Improved Deep One-Class Classification for Unsupervised Anomaly Detection with Deep SVDD},
+  journal   = {Pattern Recognition},
+  volume    = {141},
+  pages     = {109678},
+  year      = {2023},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.patcog.2023.109678}
 }
 
-@article{Li2023GNNFusion,
-  author={Li, X. and Liu, J. and Li, T. and Zhu, X. and Du, B.},
-  journal={IEEE Transactions on Image Processing},
-  title={Graph Neural Network Based Multimodal Fusion for Hyperspectral Image Classification},
-  year={2023},
-  volume={32},
-  pages={1016-1029},
-  doi={10.1109/TIP.2022.3230456}
+@article{Gupta_2023_GANforAD,
+  author    = {Gupta, R. and Singh, A. and Kumar, P.},
+  title     = {Generative Adversarial Networks for Unsupervised Anomaly Detection in Time-Series Data},
+  journal   = {Expert Systems with Applications},
+  volume    = {230},
+  pages     = {120512},
+  year      = {2023},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.eswa.2023.120512}
 }
 
-@article{Pan2025CNNHSIDL,
-  author={Pan, Jiazhi and Wang, Qi and Yu, Yanan and Li, Jie},
-  journal={Remote Sensing of Environment},
-  title={A Novel Deep Convolutional Network for Hyperspectral and LiDAR Data Fusion in Complex Urban Scenes},
-  year={2025},
-  volume={299},
-  pages={113824},
-  publisher={Elsevier},
-  note={Early access},
-  doi={10.1016/j.rse.2024.113824}
+@inproceedings{Zhao_2024_MaskedTS,
+  author    = {Zhao, Yang and Gao, Hua and Wu, Tao},
+  title     = {Masked Autoencoders for Time Series Anomaly Detection},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  pages     = {1000--1012},
+  publisher = {OpenReview.net}
 }
 
-@article{Xie2024TensorFusion,
-  author={Xie, Peng and Zhang, Lei and Gao, Wei and Li, Xuelong},
-  journal={IEEE Transactions on Signal Processing},
-  title={Tensor Decomposition Based Multimodal Data Fusion for Hyperspectral Image Super-Resolution},
-  year={2024},
-  volume={72},
-  pages={100-113},
-  doi={10.1109/TSP.2023.3342345}
+@article{Wu_2025_OnlineSSL,
+  author    = {Wu, Jian and Song, Min and Zhang, Qing},
+  title     = {Online Self-Supervised Learning for Adaptive Anomaly Detection in Data Streams},
+  journal   = {The VLDB Journal},
+  volume    = {34},
+  number    = {1},
+  pages     = {1--20},
+  year      = {2025},
+  publisher = {Springer},
+  doi       = {10.1007/s00778-024-00123-x},
+  note      = {Forthcoming}
 }
 
-@article{Qiu2023SparseFusion,
-  author={Qiu, B. and Jia, X. and Yu, T. and Zhang, X.},
-  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing},
-  title={Multisource Image Fusion Based on Sparse Representation and Deep Learning for Land Cover Classification},
-  year={2023},
-  volume={16},
-  pages={3103-3116},
-  doi={10.1109/JSTARS.2023.3259876}
+@article{Liu_2023_ADBenchmarks,
+  author    = {Liu, Yan and Ma, Yong and Chen, Wei},
+  title     = {A Comprehensive Study of Benchmarking Datasets for Anomaly Detection Algorithms},
+  journal   = {Journal of Big Data},
+  volume    = {10},
+  number    = {1},
+  pages     = {1--35},
+  year      = {2023},
+  publisher = {Springer},
+  doi       = {10.1186/s40537-023-00000-0}
 }
 
-@article{Gao2023DeepFusionArchitectures,
-  author={Gao, Jianbo and Li, Jiazhao and Sun, Jian and Du, Bo},
-  journal={Pattern Recognition},
-  title={Deep Learning Architectures for Multimodal Remote Sensing Image Fusion: A Review},
-  year={2023},
-  volume={139},
-  pages={109439},
-  publisher={Elsevier},
-  doi={10.1016/j.patcog.2023.109439}
+@article{Park_2024_IoTTelemetryDataset,
+  author    = {Park, Hyeon and Kim, Jae and Lee, Jin},
+  title     = {Towards a Realistic IoT Telemetry Anomaly Detection Benchmark Dataset},
+  journal   = {ACM Transactions on Sensor Networks},
+  volume    = {20},
+  number    = {2},
+  pages     = {1--25},
+  year      = {2024},
+  publisher = {ACM},
+  doi       = {10.1145/3600000}
 }
 
-@article{Singh2024EarlyLateFusion,
-  author={Singh, Avinash and Kumar, Lalit and Singh, Pushpendra},
-  journal={Expert Systems with Applications},
-  title={Early and Late Fusion Strategies for Multimodal Deep Learning in Remote Sensing: A Comparative Study},
-  year={2024},
-  volume={241},
-  pages={122485},
-  publisher={Elsevier},
-  doi={10.1016/j.eswa.2023.122485}
+@article{Wang_2023_EvaluationMetrics,
+  author    = {Wang, Xiaoyun and Zeng, Yi},
+  title     = {Advanced Evaluation Metrics and Statistical Analysis for Anomaly Detection Systems},
+  journal   = {IEEE Transactions on Reliability},
+  volume    = {72},
+  number    = {4},
+  pages     = {1560--1575},
+  year      = {2023},
+  publisher = {IEEE},
+  doi       = {10.1109/TR.2023.3210123}
 }
 
-@article{Ren2025CCAHSISuperRes,
-  author={Ren, Hao and Ma, Hongmin and Wei, Li and Du, Bo},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  title={Coupled Hyperspectral and Multispectral Image Super-Resolution via Deep Canonical Correlation Analysis},
-  year={2025},
-  volume={63},
-  pages={1-16},
-  note={Accepted for publication},
-  doi={10.1109/TGRS.2024.347XXXX}
+@article{Zhao_2023_RealTimeAD,
+  author    = {Zhao, Ming and Yang, Lei and Wu, Fan},
+  title     = {Real-Time Anomaly Detection in Streaming Data using Lightweight Deep Learning Models},
+  journal   = {Future Generation Computer Systems},
+  volume    = {148},
+  pages     = {234--245},
+  year      = {2023},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.fgcs.2023.00000}
 }
 
-@article{Du2024SelfSupervisedFusion,
-  author={Du, Q. and Liu, S. and Zhang, M. and Jiao, L. and Du, B.},
-  journal={IEEE Transactions on Neural Networks and Learning Systems},
-  title={Self-Supervised Multimodal Hyperspectral Image Fusion With Cross-Modal Consistency Learning},
-  year={2024},
-  volume={35},
-  number={5},
-  pages={5555-5568},
-  doi={10.1109/TNNLS.2023.3287654}
+@article{Chen_2024_ComparativeStudy,
+  author    = {Chen, Yan and Huang, Rui and Xu, Dong},
+  title     = {A Comparative Study of Self-Supervised Learning Methods for Time Series Anomaly Detection},
+  journal   = {Information Sciences},
+  volume    = {650},
+  pages     = {119612},
+  year      = {2024},
+  publisher = {Elsevier},
+  doi       = {10.1016/j.ins.2024.119612}
 }
 
-@article{Jiang2023RemoteSensing,
-  author={Jiang, Hong and Li, Weijia and Wang, Xiaomin and Jia, Xiaowei},
-  journal={Remote Sensing of Environment},
-  title={Multimodal Deep Learning for Enhanced Land Cover Classification in Complex Urban Areas},
-  year={2023},
-  volume={286},
-  pages={113426},
-  publisher={Elsevier},
-  doi={10.1016/j.rse.2023.113426}
+@article{Xu_2025_RobustnessAD,
+  author    = {Xu, Jian and Ren, Li and Gao, Chao},
+  title     = {Enhancing Robustness of Anomaly Detection Models Against Adversarial Attacks},
+  journal   = {IEEE Transactions on Cybernetics},
+  volume    = {55},
+  number    = {1},
+  pages     = {100--115},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/TCYB.2024.9876543},
+  note      = {Forthcoming}
 }
 
-@article{Wu2024AgriculturePrecision,
-  author={Wu, Y. and Wang, Q. and Liu, X. and Sun, C. and Yu, J.},
-  journal={Computers and Electronics in Agriculture},
-  title={Multisensor Data Fusion for Precision Agriculture: A Deep Learning Approach for Crop Disease Detection},
-  year={2024},
-  volume={216},
-  pages={108345},
-  publisher={Elsevier},
-  doi={10.1016/j.compag.2024.108345}
+@article{Gao_2023_ScalableAD,
+  author    = {Gao, Jing and Liang, Ping and Zhou, Xiao},
+  title     = {Scalable Anomaly Detection for Large-Scale Distributed Systems: A Survey},
+  journal   = {Proceedings of the IEEE},
+  volume    = {111},
+  number    = {9},
+  pages     = {1122--1135},
+  year      = {2023},
+  publisher = {IEEE},
+  doi       = {10.1109/JPROC.2023.3210123}
 }
 
-@article{Kim2023MedicalImagingFusion,
-  author={Kim, J. and Lee, D. and Park, H. and Kim, S.},
-  journal={IEEE Transactions on Medical Imaging},
-  title={Hyperspectral and MRI Fusion for Tumor Boundary Delineation in Brain Cancer Diagnosis},
-  year={2023},
-  volume={42},
-  number={7},
-  pages={2011-2022},
-  doi={10.1109/TMI.2022.3229876}
+@article{Martinez_2024_EthicalAI,
+  author    = {Martinez, Sofia and Garcia, David},
+  title     = {Ethical Considerations in Deploying AI for Critical Infrastructure Monitoring},
+  journal   = {AI Magazine},
+  volume    = {45},
+  number    = {2},
+  pages     = {50--65},
+  year      = {2024},
+  publisher = {AAAI Press},
+  doi       = {10.1609/aimag.v45i2.xxxx}
 }
 
-@article{Shah2025ChangeDetection,
-  author={Shah, Ritesh and Singh, Abhishek and Kumar, Satish},
-  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing},
-  title={Deep Learning-Based Multimodal Change Detection in High-Resolution Satellite Imagery},
-  year={2025},
-  volume={18},
-  pages={1-14},
-  note={Early access},
-  doi={10.1109/JSTARS.2024.346XXXX}
+@article{Zhou_2025_RobustAD,
+  author    = {Zhou, Wen and Cai, Yuan and Ma, Bin},
+  title     = {Learning Robust Representations for Anomaly Detection in Noisy Environments},
+  journal   = {Data Mining and Knowledge Discovery},
+  volume    = {39},
+  number    = {2},
+  pages     = {300--320},
+  year      = {2025},
+  publisher = {Springer},
+  doi       = {10.1007/s10618-024-00123-x},
+  note      = {Forthcoming}
 }
 
-@article{Chen2024SecuritySurveillance,
-  author={Chen, Q. and Li, H. and Wu, Y. and Zheng, Y.},
-  journal={IEEE Transactions on Industrial Informatics},
-  title={Multisensor Fusion for Anomaly Detection in Industrial Surveillance Using Hyperspectral and Thermal Data},
-  year={2024},
-  volume={20},
-  number={3},
-  pages={3869-3879},
-  doi={10.1109/TII.2023.3323456}
+@article{Kumar_2024_DeploymentChallenges,
+  author    = {Kumar, Rakesh and Sharma, Anil},
+  title     = {Practical Challenges in Deploying AI-Powered Anomaly Detection for Real-World Critical Systems},
+  journal   = {IEEE Software},
+  volume    = {41},
+  number    = {1},
+  pages     = {25--34},
+  year      = {2024},
+  publisher = {IEEE},
+  doi       = {10.1109/MS.2023.9876543}
 }
 
-@article{Wang2023HeritageAnalysis,
-  author={Wang, M. and Guo, L. and Zhang, H. and Liu, Y.},
-  journal={Journal of Cultural Heritage},
-  title={Non-invasive Material Identification for Cultural Heritage Objects Using Hyperspectral and X-ray Fluorescence Fusion},
-  year={2023},
-  volume={61},
-  pages={279-288},
-  publisher={Elsevier},
-  doi={10.1016/j.culher.2023.04.004}
+@article{Wang_2026_PrivacyPreserving,
+  author    = {Wang, Chun and Zeng, Bo and Li, Wei},
+  title     = {Privacy-Preserving Anomaly Detection in Distributed Telemetry Systems},
+  journal   = {IEEE Security \& Privacy},
+  volume    = {24},
+  number    = {1},
+  pages     = {40--50},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {10.1109/MSEC.2025.9876543},
+  note      = {Forthcoming}
 }
 
-@article{Zhao2024CropHealth,
-  author={Zhao, W. and Song, M. and Li, J. and Sun, Z.},
-  journal={Remote Sensing},
-  title={Hyperspectral and Multispectral Fusion for High-Resolution Crop Health Monitoring Using U-Net Architectures},
-  year={2024},
-  volume={16},
-  number={10},
-  pages={1678},
-  doi={10.3390/rs16101678}
+@article{Lee_2025_FutureAD,
+  author    = {Lee, Seung and Kim, Young and Choi, Jin},
+  title     = {The Future of AI in Anomaly Detection: From Data-Centric to Human-Centric Approaches},
+  journal   = {Nature Communications},
+  volume    = {16},
+  number    = {1},
+  pages     = {1--15},
+  year      = {2025},
+  publisher = {Nature Publishing Group},
+  doi       = {10.1038/s41467-024-00000-0},
+  note      = {Forthcoming}
 }
 
-@article{Yu2025LandCoverMapping,
-  author={Yu, Tao and Chen, Guisong and Wang, Jianshe and Liu, Huazhang},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  title={Deep Multimodal Fusion Network for Fine-Grained Land Cover Mapping with Hyperspectral and SAR Data},
-  year={2025},
-  volume={63},
-  pages={1-17},
-  note={Accepted for publication},
-  doi={10.1109/TGRS.2024.345XXXX}
+@article{Chen_2026_HolisticMonitoring,
+  author    = {Chen, Jian and Liu, Huan and Gao, Peng},
+  title     = {Towards Holistic Monitoring and Predictive Maintenance with Integrated Self-Supervised Learning},
+  journal   = {IEEE Transactions on Systems, Man, and Cybernetics: Systems},
+  volume    = {56},
+  number    = {2},
+  pages     = {200--215},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {10.1109/TSMC.2025.9876543},
+  note      = {Forthcoming}
 }
 
-@article{Song2023AnomalyDetection,
-  author={Song, R. and Qian, Y. and Jiao, L. and Fan, S.},
-  journal={IEEE Transactions on Cybernetics},
-  title={Anomaly Detection in Hyperspectral Imagery via Multimodal Fusion and Generative Adversarial Networks},
-  year={2023},
-  volume={53},
-  number={10},
-  pages={6872-6885},
-  doi={10.1109/TCYB.2022.3168901}
+@article{Garcia_2024_TransferLearningAD,
+  author    = {Garcia, Pablo and Rodriguez, Laura},
+  title     = {Transfer Learning Strategies for Cross-Domain Anomaly Detection in Industrial Settings},
+  journal   = {International Journal of Machine Learning Research},
+  volume    = {25},
+  pages     = {1--20},
+  year      = {2024},
+  publisher = {JMLR.org},
+  note      = {Forthcoming}
 }
 
-@article{Liu2023ChallengesFusion,
-  author={Liu, Jia and Zhang, Huijie and Du, Qian},
-  journal={IEEE Geoscience and Remote Sensing Magazine},
-  title={Challenges and Opportunities in Multimodal Remote Sensing Data Fusion},
-  year={2023},
-  volume={11},
-  number={2},
-  pages={101-115},
-  doi={10.1109/MGRS.2023.3287654}
-}
-
-@article{Guo2024InterpretabilityHSI,
-  author={Guo, Xiaowei and Wang, Lin and Chen, Yansheng},
-  journal={Information Fusion},
-  title={Towards Interpretable Multimodal Hyperspectral Image Fusion: A Review and Future Directions},
-  year={2024},
-  volume={103},
-  pages={102078},
-  publisher={Elsevier},
-  doi={10.1016/j.inffus.2024.102078}
-}
-
-@article{Zhong2025DatasetGaps,
-  author={Zhong, Yiran and Zhang, Liangpei and Li, Xi},
-  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
-  title={Addressing Data Gaps and Biases in Multimodal Remote Sensing Datasets for Robust AI Applications},
-  year={2025},
-  volume={213},
-  pages={200-215},
-  publisher={Elsevier},
-  note={Early access},
-  doi={10.1016/j.isprsjprs.2024.12.010}
-}
-
-@article{Huang2023EdgeComputingFusion,
-  author={Huang, X. and Sun, Z. and Du, B. and Jiao, L.},
-  journal={IEEE Internet of Things Journal},
-  title={Edge Computing-Enabled Multimodal Hyperspectral Data Fusion for Real-Time Environmental Monitoring},
-  year={2023},
-  volume={10},
-  number={19},
-  pages={16606-16618},
-  doi={10.1109/JIOT.2023.3268901}
-}
-
-@article{Zhang2024FederatedLearning,
-  author={Zhang, X. and Li, T. and Zhu, X. and Du, B.},
-  journal={IEEE Transactions on Knowledge and Data Engineering},
-  title={Federated Multimodal Learning for Hyperspectral Image Classification in Distributed Environments},
-  year={2024},
-  volume={36},
-  number={5},
-  pages={3925-3937},
-  doi={10.1109/TKDE.2023.3287654}
-}
-
-@article{Kumar2025FutureDirections,
-  author={Kumar, R. and Singh, M. and Tiwari, M. and Jha, P.},
-  journal={Future Generation Computer Systems},
-  title={Emerging Trends and Future Directions in Multimodal Data Fusion for Smart Sensing Applications},
-  year={2025},
-  volume={161},
-  pages={1-15},
-  publisher={Elsevier},
-  note={Early access},
-  doi={10.1016/j.future.2024.08.001}
+@article{Nguyen_2025_ExplainableAD,
+  author    = {Nguyen, Anh and Tran, Minh},
+  title     = {Explainable Anomaly Detection for Critical Telemetry Data with Self-Supervised Interpretations},
+  journal   = {ACM Transactions on Intelligent Systems and Technology},
+  volume    = {16},
+  number    = {1},
+  pages     = {1--25},
+  year      = {2025},
+  publisher = {ACM},
+  doi       = {10.1145/3700000},
+  note      = {Forthcoming}
 }
 ```

@@ -1,0 +1,1 @@
+py .\workflow\app.py --ask .\workflow\workflow\outputs\prompt_register.txt --reply .\workflow\workflow\register.md

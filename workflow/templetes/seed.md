@@ -1,1 +1,1 @@
-Fusión de Datos Multimodal y Sensores Hiperespectrales
+Detección Automática de Anomalías Telemétricas mediante Aprendizaje Autosupervisado
