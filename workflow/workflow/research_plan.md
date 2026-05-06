@@ -1,6 +1,7 @@
 ```json
 {
   "titulo": "Segmentación Semántica en Tiempo Real para Respuesta a Desastres: Aceleración de Emergencias mediante Visión por Computadora en Plataformas UAV",
+  "folder_name": "uav_semantic_segmentation_disasters",
   "abstract_preliminar": "La segmentación semántica en tiempo real de imágenes aéreas es fundamental para la respuesta rápida a desastres naturales como inundaciones, incendios y terremotos. Este trabajo presenta una revisión sistemática y framework metodológico para el despliegue eficiente de modelos de segmentación semántica ligeros en plataformas UAV y edge computing, priorizando métricas de precisión (mIoU, F1-score) y latencia (FPS, tiempo de inferencia). Se analizan arquitecturas como Fast-SCNN, BiSeNetV2 y variantes basadas en Transformers adaptadas a entornos de desastres, junto con datasets especializados como RescueNet y BlessemFlood21. Se discuten desafíos como variabilidad ambiental, robustez en condiciones adversas y optimizaciones para hardware embebido. Los resultados cuantitativos de benchmarks recientes (2023-2026) demuestran la viabilidad de inferencia en tiempo real (<30 ms por imagen) con mIoU superior a 0.65 en escenarios reales, contribuyendo a la aceleración de la toma de decisiones en operaciones de emergencia. Se proponen directrices para integración en sistemas de respuesta humanitaria.",
   "secciones": [
     {

@@ -37,7 +37,7 @@ Para cada sección, genera un bloque JSON independiente que funcione como diccio
       "guia_redaccion": "Instrucción precisa sobre cómo integrarla (ej: 'Usar en 1.1 para contrastar X vs Y, citando resultados de eficiencia y destacando limitaciones en entornos reales').",
       "subseccion_destino": "1.1"
     },
-    "Key2": { ... }
+    "Key2": { "..." : "..." }
   }
 }
 ```

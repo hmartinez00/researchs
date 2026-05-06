@@ -250,6 +250,7 @@ Email: hmartinez@abae.gob.ve}}
     with open(path('prompt_register.txt'), 'w', encoding='utf-8') as f:
         f.write(f'Necesito ingresar en el sistema de gestión documental de la Agencia los datos de la investigación: **{data.get("titulo", project_name)}**.\n\n')
         f.write('Campos requeridos:\n')
+        f.write('* Title\n')
         f.write('* Description\n')
         f.write('* General Objective\n')
         f.write('* Specific Objectives\n')
