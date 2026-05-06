@@ -1,1 +1,1 @@
-Detección Automática de Anomalías Telemétricas mediante Aprendizaje Autosupervisado
+Segmentación Semántica Desastres (Acelera respuesta a emergencias en tiempo real.)
