@@ -43,9 +43,31 @@ Entrega un único bloque de código JSON con la siguiente estructura:
 **PARTE 2: BLOQUES BIBLIOGRÁFICOS SECCIONALES**
 
 Para cada sección, entrega un bloque de código independiente con las entradas en formato BibTeX.
-- Fuentes reales, **verificables** y publicadas preferentemente entre 2022 y 2026.
+
+**REQUISITOS OBLIGATORIOS PARA CADA REFERENCIA:**
+
+- Fuentes **reales y verificables** (publicadas preferentemente entre 2022 y 2026).
+- **Debe incluir siempre** el campo `url = {https://...}` con la **URL completa y accesible públicamente** (preferiblemente el enlace directo al artículo, PDF o página del editor).
+- Si la referencia tiene DOI, **inclúyelo obligatoriamente** en el campo `doi = {10.xxxx/...}`.
 - La suma total de referencias en TODAS las secciones debe ser ≤ 30.
-- Formato limpio, listo para copiar/pegar en `references.bib`.
+- Formato limpio, listo para copiar/pegar directamente en `references.bib`.
+- Usa el estilo BibTeX estándar compatible con IEEEtran.
+
+**Ejemplo de entrada correcta:**
+```bibtex
+@article{key_ejemplo2025,
+  author    = {Apellido, N. and Apellido2, I.},
+  title     = {Título completo del artículo},
+  journal   = {IEEE Transactions on ...},
+  volume    = {XX},
+  number    = {X},
+  pages     = {XX--XX},
+  year      = {2025},
+  doi       = {10.1109/TXXX.2025.1234567},
+  url       = {https://doi.org/10.1109/TXXX.2025.1234567},
+  note      = {[Online]. Available: https://ieeexplore.ieee.org/document/1234567}
+}
+```
 
 **PARTE 3: MAPA DE USO DE REFERENCIAS (POR SECCIÓN)**
 
