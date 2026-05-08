@@ -15,53 +15,67 @@ Claves BibTeX: {{llaves_bibtex}}
 
 --- ⛔ RESTRICCIONES MODULARES (CRÍTICO) ---
 Este fragmento se insertará vía \input{section_N.tex} en un main.tex YA CONFIGURADO.
-PROHIBIDO INCLUIR:
-  • \documentclass, \begin{document}, \end{document}
-  • \usepackage{}, \addbibresource{}, \bibliographystyle{}, \bibliography{}
-  • \begin{filecontents}{...} ... \end{filecontents}
-  • Preambulo, metadatos, autor, título o configuración de bibliografía.
-  • Comentarios explicativos fuera de LaTeX.
+PROHIBIDO INCLUIR: 
+  • \documentclass, \begin{document}, preámbulo, metadatos o cualquier configuración global.
+  • Comentarios explicativos fuera del código LaTeX.
 
---- ✅ INSTRUCCIONES DE SALIDA ---
+--- ✅ INSTRUCCIONES DE SALIDA (ESTILO HUMANO ACADÉMICO) ---
 
---- ⚙️ FORMATO DE SALIDA ESTRICTO (OBLIGATORIO) ---
-Tu respuesta debe contener EXACTAMENTE dos bloques de código Markdown. Nada más.
+Escribe como un investigador experimentado que lleva años trabajando en el tema: estilo formal pero natural, con voz propia y fluidez académica real.
 
-BLOQUE 1 (Contenido LaTeX):
+**Técnicas de humanización obligatorias:**
+
+- Varía considerablemente la longitud de las oraciones (mezcla cortas y largas).
+- Usa transiciones naturales y sofisticadas, no mecánicas.
+- Introduce leve hedging cuando sea apropiado (podría sugerir, tiende a, en la mayoría de los casos estudiados...).
+- Incluye algún análisis crítico o matiz propio, no solo descripción.
+- Evita patrones repetitivos de IA.
+
+**Aperturas de sección y subsección (CRÍTICO):**
+No comiences nunca con "La...", "El...", "Los...", "Este trabajo...", "En este sección...". 
+Utiliza aperturas variadas y más sofisticadas:
+- Partiendo de un hallazgo o contradicción previa
+- Contextualizando históricamente o teóricamente
+- Planteando una pregunta retórica o un problema abierto
+- Refiriendo a una tendencia o evolución reciente en la literatura
+- Destacando una brecha o limitación conocida
+- Presentando un enfoque o perspectiva particular
+
+Ejemplos de aperturas aceptables: "A pesar de los avances significativos...", "Uno de los aspectos menos explorados...", "Resulta particularmente interesante cómo...", "Lejos de ser un proceso lineal...", etc.
+
+--- ⚙️ FORMATO DE SALIDA ESTRICTO ---
+
+Tu respuesta debe contener **exactamente dos bloques** de código Markdown. Nada más.
+
+**BLOQUE 1 (Contenido LaTeX):**
 ```latex
-\section{Nombre Sección}
+\section{Nombre de la Sección}
 \subsection{Subsección 1.1}
-Texto académico con \cite{Key} ...
-\begin{figure}[h]\centering\includegraphics[width=\linewidth]{fig.png}\caption{Desc}\label{fig:1}\end{figure}
+Texto con flujo natural y citas \cite{Key} integradas orgánicamente...
 
-```
-
-BLOQUE 2 (Prompts de Imagen):
-
-```json
-{
-  "fig1.png": "2D technical vector diagram..."
-}
-
-```
-
-1. EXTENSIÓN: 600-800 palabras.
-2. ESTRUCTURA: Solo \section{} y \subsection{} según lo listado.
-3. CITAS: Usa \cite{clave} en línea. NUNCA menciones una referencia sin citarla.
-4. FIGURAS/TABLAS: Usa entornos figure/table estándar de IEEE.
-5. AL FINAL: Un único bloque ```json con prompts para DALL-E 3.
-
-FORMATO DE FIGURAS:
 \begin{figure}[h]
 \centering
-\includegraphics[width=\linewidth]{nombre_archivo.png}
-\caption{Descripción técnica}
-\label{fig:nombre_archivo}
+\includegraphics[width=\linewidth]{nombre.png}
+\caption{Descripción clara y técnica}
+\label{fig:nombre}
 \end{figure}
+```
 
-REGLAS PARA PROMPTS DE IMAGEN:
+**BLOQUE 2 (Prompts de Imagen):**
+```json
+{
+  "fig1.png": "2D technical vector diagram, engineering schematic..."
+}
+```
 
-* Estilo: '2D technical vector diagram, engineering schematic, flat design'
-* Fondo: Blanco puro, sin texto interno, sin perspectiva 3D
-* Colores: Azul cobalto (#0047AB), Gris técnico (#4A4A4A), Negro
-* Evita: Sombras, gradientes, elementos decorativos
+**Reglas adicionales de calidad:**
+
+1. Extensión: 650-850 palabras (aprox.).
+2. Estructura: Solo las subsecciones indicadas en {{subsecciones}}.
+3. Citación: Integra las citas de forma natural dentro del flujo argumental. Nunca menciones una referencia sin citarla.
+4. Figuras y tablas: Usa entornos IEEE estándar.
+5. Estilo visual de las imágenes:
+   - Estilo: 2D technical vector diagram, engineering schematic, flat design, minimalista
+   - Fondo: blanco puro
+   - Colores principales: Azul cobalto (#0047AB), gris técnico (#4A4A4A), negro
+   - Sin sombras, sin gradientes, sin texto dentro de la imagen, sin elementos decorativos
