@@ -5,6 +5,7 @@ Entrega un único bloque de código JSON con la siguiente estructura:
 ```json
 {
   "titulo": "Título técnico en español",
+  "folder_name": "Identificador alfanumérico del proyecto bajo la convención snake_case. Sin espacios en blanco. Usar '_' como separador",
   "abstract_preliminar": "Resumen técnico de 150 palabras siguiendo normas IEEE",
   "secciones": [
     {
@@ -37,7 +38,7 @@ Para cada sección, genera un bloque JSON independiente que funcione como diccio
       "guia_redaccion": "Instrucción precisa sobre cómo integrarla (ej: 'Usar en 1.1 para contrastar X vs Y, citando resultados de eficiencia y destacando limitaciones en entornos reales').",
       "subseccion_destino": "1.1"
     },
-    "Key2": { ... }
+    "Key2": { "..." : "..." }
   }
 }
 ```
