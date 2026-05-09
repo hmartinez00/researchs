@@ -1,1 +1,0 @@
-Segmentación Semántica Desastres (Acelera respuesta a emergencias en tiempo real.)
